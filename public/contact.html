@@ -14,7 +14,7 @@
   <title>Taylor Cannon | Developer</title>
 </head>
 <body>
-  <header>
+  <header style="margin-bottom: 5%;">
     <nav>
       <ul>
         <li>
@@ -26,10 +26,6 @@
             <button class="ripple">
               Projects
             </button></a>
-          <a href="aboutme.html">
-            <button class="ripple">
-              About Me
-            </button></a>
           <a href="#">
             <button class="ripple">
               Contact
@@ -38,5 +34,24 @@
       </ul>
     </nav>
   </header>
+  <div class="flex-container-center-column">
+  <div class="container">
+    <form action="#">
+      <label style="padding-top: ;" for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="Your name...">
+  
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name...">
+
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" placeholder="example@gmail.com">
+  
+      <label for="subject">Subject</label>
+      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px; resize: none;" ></textarea>
+  
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</div>
 </body>
 </html>

@@ -107,3 +107,41 @@ a {
     text-align: start;
     padding: 2px 16px;
   }
+
+  .container-contact
+  {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: start;
+  }
+
+  /*Contact Page*/
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    font-family: 'Hind', sans-serif;
+    font-size: 1em;
+    font-weight: normal;
+  }
+  
+  input[type=submit] {
+    background-color: #D33B43;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Hind', sans-serif;
+    font-size: 1em;
+    font-weight: normal;
+  }
+  
+  input[type=submit]:hover {
+    background: rgb(165, 39, 45) radial-gradient(circle, transparent 1%, white 1%) center/15000%;
+  } 
