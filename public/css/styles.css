@@ -17,13 +17,13 @@ body {
 }
 
 .name {
-    color: #D33B43;
+    color: #1db256;
 }
 
 header {
     display: flex;
     justify-content: center;
-    background-color: #D33B43;
+    background-color: #1db256;
 }
 
 ul {
@@ -65,7 +65,7 @@ li {
   }
   .ripple:active {
     background-color: white;
-    color: #D33B43;
+    color: #1db256;
     background-size: 100%;
     transition: background 0s;
   }
@@ -74,7 +74,7 @@ button {
     border: none;
     cursor: pointer;
     color: white;
-    background-color: #D33B43;
+    background-color: #1db256;
     outline: none;
 
     font-family: 'Hind';
@@ -131,7 +131,7 @@ a {
   }
   
   input[type=submit] {
-    background-color: #D33B43;
+    background-color: #1db256;
     color: white;
     padding: 12px 20px;
     border: none;
