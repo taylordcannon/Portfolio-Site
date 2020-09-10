@@ -67,7 +67,6 @@ li {
     background: #15813e;
   } 
   .ripple:active {
-    background-color: white;
     color: #1db256;
     background-size: 100%;
     transition: background 0s;
