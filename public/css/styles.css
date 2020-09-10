@@ -61,10 +61,11 @@ li {
 .ripple {
     background-position: center;
     transition: background 0.5s;
+    background: #1db256
   }
   .ripple:hover {
-    background: #15813e  radial-gradient(circle, transparent 1%, white 1%) center/15000%;
-  }
+    background: #15813e;
+  } 
   .ripple:active {
     background-color: white;
     color: #1db256;
@@ -76,7 +77,7 @@ button {
     border: none;
     cursor: pointer;
     color: white;
-    background-color: #1db256;
+    background: #1db256;
     outline: none;
 
     font-family: 'Hind';
