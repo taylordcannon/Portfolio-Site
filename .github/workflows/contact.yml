@@ -1,0 +1,33 @@
+name: "Contact form via GitHub Pages"
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Sender's name"
+        required: true
+      email:
+        description: "Sender's email"
+        required: true
+      message:
+        description: "Message content"
+        required: true
+
+jobs:
+  create_issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ignore bot submissions
+        if: ${{ github.event.inputs.name == '' || github.event.inputs.email == '' || github.event.inputs.message == '' }}
+        run: echo "Missing fields, skipping."
+
+      - name: Create an issue for the message
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api repos/${{ github.repository }}/issues \
+            -f title="Message from ${{ github.event.inputs.name }}" \
+            -f body="**Email:** ${{ github.event.inputs.email }}  
+
+${{ github.event.inputs.message }}" \
+            -f labels='contact-form'
