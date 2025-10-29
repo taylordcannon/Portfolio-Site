@@ -17,6 +17,11 @@ jobs:
         if: ${{ github.event.client_payload.name == '' || github.event.client_payload.email == '' || github.event.client_payload.message == '' }}
         run: echo "Missing fields, skipping."
 
+      - name: Install GitHub CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gh
+
       - name: Create an issue for the message
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -26,5 +31,5 @@ jobs:
         run: |
           gh api repos/${{ github.repository }}/issues \
             -f title="Message from ${NAME}" \
-            -f body="$(echo -e "**Email:** ${EMAIL}\n\n${MESSAGE}")" \
+            -f body="$(echo -e \"**Email:** ${EMAIL}\n\n${MESSAGE}\")" \
             -f labels='contact-form'
