@@ -34,7 +34,7 @@
     sending.value = true
     try {
       const res = await fetch(
-        `https://api.github.com/repos/${import.meta.env.VITE_GITHUB_USERNAME}/${import.meta.env.VITE_GITHUB_REPO}/dispatches`,
+        `https://api.github.com/repos/taylordcannon/Portfolio-Site/dispatches`,
         {
           method: 'POST',
           headers: {
