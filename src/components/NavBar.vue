@@ -17,6 +17,7 @@
     <!-- Desktop Links -->
     <div class="hidden sm:flex flex-1 items-center justify-center gap-8 text-base font-medium">
       <RouterLink to="/" class="hover:text-mint transition-colors">Home</RouterLink>
+      <RouterLink to="/resume" class="hover:text-mint transition-colors">Resume</RouterLink>
       <RouterLink to="/projects" class="hover:text-mint transition-colors">Projects</RouterLink>
       <RouterLink to="/contact" class="hover:text-mint transition-colors">Contact</RouterLink>
     </div>
@@ -60,6 +61,9 @@
         <RouterLink to="/"
           class="w-full text-center py-2 hover:bg-mint hover:text-darkBg rounded transition-all duration-300"
           @click="closeMenu">Home</RouterLink>
+        <RouterLink to="/resume"
+          class="w-full text-center py-2 hover:bg-mint hover:text-darkBg rounded transition-all duration-300"
+          @click="closeMenu">Resume</RouterLink>
         <RouterLink to="/projects"
           class="w-full text-center py-2 hover:bg-mint hover:text-darkBg rounded transition-all duration-300"
           @click="closeMenu">Projects</RouterLink>

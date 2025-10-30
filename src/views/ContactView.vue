@@ -1,64 +1,61 @@
 <template>
-  <section class="flex flex-col items-center justify-center min-h-[80vh] p-8">
-    <form @submit.prevent="sendMessage"
-      class="w-full max-w-md space-y-4 p-6 rounded-xl bg-gradient-to-br from-lightCard to-mint/10 dark:from-darkCard dark:to-mint/10 border border-lightBorder dark:border-darkBorder shadow-md">
-      <input v-model="form.name" type="text" placeholder="Your Name" required
-        class="w-full p-3 rounded bg-lightCard dark:bg-darkCard text-lightText dark:text-darkText border" />
-      <input v-model="form.email" type="email" placeholder="Your Email" required
-        class="w-full p-3 rounded bg-lightCard dark:bg-darkCard text-lightText dark:text-darkText border" />
-      <textarea v-model="form.message" placeholder="Your Message" required
-        class="w-full p-3 rounded bg-lightCard dark:bg-darkCard text-lightText dark:text-darkText border h-40"></textarea>
+  <section
+    class="min-h-screen flex flex-col items-center justify-center px-6 py-16 bg-lightBg dark:bg-darkBg text-gray-900 dark:text-gray-100">
+    <div class="max-w-2xl w-full text-center">
+      <h1 class="text-4xl font-bold mb-4">Contact Me</h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-10">
+        Have a question, collaboration idea, or just want to say hello?
+        Fill out the form below — I’d love to hear from you!
+      </p>
 
-      <!-- Honeypot -->
-      <input v-model="form.website" type="text" name="website" style="display:none" />
+      <!-- Google Form Card -->
+      <div class="relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+        <!-- Loader Overlay -->
+        <transition name="fade">
+          <div v-if="loading" class="absolute inset-0 flex flex-col items-center justify-center bg-white/80  z-10">
+            <svg class="animate-spin h-10 w-10 text-mint mb-3" xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+            </svg>
+            <p class="text-sm text-gray-600 dark:text-gray-300">
+              Loading form…
+            </p>
+          </div>
+        </transition>
 
-      <button type="submit"
-        class="w-full border border-mint text-mint py-3 rounded hover:bg-mint hover:text-darkBg transition-all duration-300">
-        {{ sending ? 'Sending…' : 'Send' }}
-      </button>
+        <!-- Google Form Embed -->
+        <iframe ref="formFrame"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSekSPxsaUwfec6KSdUx9WK2uAOO-JE_ZaltGqrnCcI6syvunA/viewform?embedded=true"
+          width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" class="w-full"
+          @load="onLoad"></iframe>
+      </div>
 
-      <p v-if="status" class="text-sm text-gray-400 mt-2">{{ status }}</p>
-    </form>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mt-6">
+        This form is powered by Google Forms — submissions are private and go directly to my inbox.
+      </p>
+    </div>
   </section>
 </template>
 
 <script setup>
   import { ref } from 'vue'
 
-  const form = ref({ name: '', email: '', message: '', website: '' })
-  const sending = ref(false)
-  const status = ref('')
+  const loading = ref(true)
+  const onLoad = () => {
+    loading.value = false
+  }
+</script>
 
-  const sendMessage = async () => {
-    if (form.value.website) return
-    sending.value = true
-    try {
-      const res = await fetch(
-        `https://api.github.com/repos/taylordcannon/Portfolio-Site/dispatches`,
-        {
-          method: 'POST',
-          headers: {
-            Accept: 'application/vnd.github+json',
-            Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
-          },
-          body: JSON.stringify({
-            event_type: 'contact_form_submission',
-            client_payload: {
-              name: form.value.name,
-              email: form.value.email,
-              message: form.value.message,
-            },
-          }),
-        }
-      )
-
-      if (res.ok) status.value = 'Message sent successfully!'
-      else status.value = 'Something went wrong.'
-    } catch (err) {
-      status.value = 'Error sending message.'
-    } finally {
-      sending.value = false
-    }
+<style scoped>
+  /* Simple fade transition */
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.4s ease;
   }
 
-</script>
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+</style>

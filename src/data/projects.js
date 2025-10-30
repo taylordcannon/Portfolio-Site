@@ -27,4 +27,12 @@ export default [
         tech: 'HTML • CSS',
         github: 'https://github.com/taylordcannon/tachesapp',
     }
+    // {
+    //     title: '2D Video Game',
+    //     image: RpgIcon,
+    //     description:
+    //         'The start of a 2D RPG video game that allows the user to control a character. Continued development planned for the future.',
+    //     tech: 'HTML • CSS • Webpack',
+    //     github: 'https://github.com/taylordcannon/rpg2d',
+    // }
 ]
