@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen font-[Montserrat] transition-colors duration-300 bg-lightBg dark:bg-darkBg text-gray-900 dark:text-gray-100">
+  <div class="min-h-screen font-sans transition-colors duration-300 bg-lightBg dark:bg-darkBg text-gray-900 dark:text-gray-100">
     <NavBar />
     <transition name="slide-fade" mode="out-in">
       <router-view />
