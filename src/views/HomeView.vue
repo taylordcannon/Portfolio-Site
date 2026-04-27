@@ -15,7 +15,7 @@
         <div
             class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mt-10 md:mt-12 w-full max-w-md md:max-w-none">
             <!-- Resume -->
-            <a href="/assets/pdfs/taylor_cannon_resume_07_09_2025.pdf" download class="w-full md:w-auto">
+            <a href="/assets/pdfs/taylor_cannon_resume_04_27_2026.pdf" download class="w-full md:w-auto">
                 <button
                     class="w-full md:w-auto min-w-[150px] flex items-center justify-center border border-mint text-mint px-6 py-3 rounded hover:bg-mint hover:text-darkBg transition-all duration-300 text-sm md:text-base font-medium">
                     Download Resume
